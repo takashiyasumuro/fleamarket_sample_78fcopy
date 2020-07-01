@@ -1,7 +1,7 @@
 lock "~> 3.14.1"
 
 set :application, "fleamarket_sample_78f"
-set :repo_url, "git@example.com:eri-Practice/fleamarket_sample_78f.git"
+set :repo_url, "git@hub.com:eri-Practice/fleamarket_sample_78f.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
