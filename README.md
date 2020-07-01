@@ -110,7 +110,6 @@
 ### Categories table
 |Column|Type|Options|
 |------|----|-------|
-|item_id|reference|null:false, foreign_key:true|
-|url|string|null: false|
+|name|string|null: false|
 ## Association
-- belongs_to :item
+- has_many :item
