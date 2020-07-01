@@ -3,9 +3,9 @@
 ## Users table
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null:false
-|mail|string|VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/inull:false, unique: true, index:true,  format: { with: VALID_EMAIL_REGEX }
-|password|string|null:false
+|nickname|string|null:false|
+|mail|string|VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/inull:false, unique: true, index:true,  format: { with: VALID_EMAIL_REGEX }|
+|password|string|null:false|
 |introduction|text|
 |image|string|
 ## Association
@@ -19,13 +19,13 @@
 ### Profiles table
 |Column|Type|Options|
 |------|----|-------|
-|family_name|string|null:false	
-|first_name_kana|string|null:false <!--ユーザー本名は全角で入力させる -->
-|family_name_kana|string|null:false <!--ユーザー本名は全角で入力させる -->
-|birth_year|date|null:false	
-|birth_month|date|null:false	
-|birth_day|date|null:false	
-|user_id|references|null: false, foreign_key: true	
+|family_name|string|null:false|
+|first_name_kana|string|null:false| <!--ユーザー本名は全角で入力させる -->
+|family_name_kana|string|null:false| <!--ユーザー本名は全角で入力させる -->
+|birth_year|date|null:false|
+|birth_month|date|null:false|
+|birth_day|date|null:false|
+|user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
 
@@ -60,10 +60,10 @@
 ### Item_imgs table
 |Column|Type|Options|
 |------|----|-------|
-|url|string|null:false
-|item|reference|null: false, foreign_key:true
+|url|string|null:false|
+|item|reference|null: false, foreign_key:true|
 ## Association
-- belongs_to :item		
+- belongs_to :item
 
 ### Sending_destinations table
 |Column|Type|Options|
@@ -92,3 +92,25 @@
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+
+### Postage_payers table
+|Column|Type|Options|
+|------|----|-------|
+|postage_payer|string|null:false|
+## Association
+- has_many :items
+
+### Preparation_day table
+|Column|Type|Options|
+|------|----|-------|
+|preparation_day|string|null:false|
+## Association
+- has_many :items
+
+### Categories table
+|Column|Type|Options|
+|------|----|-------|
+|item_id|reference|null:false, foreign_key:true|
+|url|string|null: false|
+## Association
+- belongs_to :item
