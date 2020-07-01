@@ -29,7 +29,7 @@
 ## Association
 - belongs_to :user
 
-### items table
+### Items table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
@@ -58,7 +58,7 @@
 - belongs_to :buyer, class_name: "User"
 - Gem：jp_prefectureを使用して都道府県コードを取得
 
-### item_imgs table
+### Item_imgs table
 |Column|Type|Options|
 |------|----|-------|
 |url|string|null:false
