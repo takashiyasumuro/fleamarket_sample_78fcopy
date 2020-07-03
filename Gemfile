@@ -65,7 +65,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
-
+gem 'jp_prefecture'
 group :production do
   gem 'unicorn'
 end
