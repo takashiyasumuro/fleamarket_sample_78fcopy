@@ -1,7 +1,7 @@
 <div class="contents row">
   <div class="container">
     <h2>新規会員登録</h2>
-    <%= form_for model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
@@ -34,7 +34,6 @@
 <p>れることはありません</p>
 
 <p>お名前（全角）</p>
-  <%= f.fields_for%>
        <div class="field">
         <%= f.label :性 %><br />
         <%= f.text_field :family_name, autofocus: true %>
