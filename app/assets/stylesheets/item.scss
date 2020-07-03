@@ -35,6 +35,25 @@
         .inputtext {
           height: 120px;
         }
+        #image-box {
+          background-color: rgb(240, 240, 240);
+          height: 130px;
+          border: dashed 1px rgb(200, 200, 200);
+          text-align: center;
+          #image-box__container {
+            padding-top: 30px;
+            #img-file {
+              cursor: pointer;
+              .fa-camera {
+                margin-bottom: 10px;
+                font-size: 20px;
+              }
+              .imageText {
+                font-size: 12px;
+              }
+            }
+          }
+        }
       }
     }
   }
