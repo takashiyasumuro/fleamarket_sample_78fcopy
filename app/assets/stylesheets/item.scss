@@ -1,0 +1,25 @@
+.LogoContainer {
+  width: 100vw;
+  height: 120px;
+  background-color: rgb(245, 245, 245);
+  
+}
+
+.FormContainer {
+  overflow: hidden;
+  width: 100vw;
+  min-height: calc(100vh - 120px);
+  background-color: rgb(245, 245, 245);
+  .Wrapper {
+    display: flex;
+    .FormList {
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      .FormItem {
+        padding: 40px;
+
+      }
+      }
+  }
+}
