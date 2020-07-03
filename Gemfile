@@ -66,6 +66,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'jp_prefecture'
+gem 'ancestry'
+
 group :production do
   gem 'unicorn'
 end
