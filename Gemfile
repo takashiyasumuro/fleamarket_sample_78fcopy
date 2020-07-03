@@ -65,6 +65,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
+gem 'ancestry'
 
 group :production do
   gem 'unicorn'
