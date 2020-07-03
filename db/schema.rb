@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_065804) do
+
+ActiveRecord::Schema.define(version: 2020_07_03_090402) do
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "item_id"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.string "name"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -32,6 +41,24 @@ ActiveRecord::Schema.define(version: 2020_07_03_065804) do
     t.string "postage_payer"
     t.string "prefecture"
     t.string "standby_day"
+  end
+
+  create_table "sending_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "destination_first_name", null: false
+    t.string "destination_family_name", null: false
+    t.string "destination_first_name_kana", null: false
+    t.string "destination_family_name_kana", null: false
+    t.integer "post_code", null: false
+    t.string "name", null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.integer "phone_number"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
 
   create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,4 +80,5 @@ ActiveRecord::Schema.define(version: 2020_07_03_065804) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "sending_destinations", "users"
 end
