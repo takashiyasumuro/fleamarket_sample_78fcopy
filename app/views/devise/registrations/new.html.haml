@@ -1,86 +1,112 @@
-.contents.row
-  .container
-    %h2 新規会員登録
-    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
-      = devise_error_messages!
-      .field
-        = f.label :ニックネーム
-        %em
-        %br/
-        = f.text_field :nickname, autofocus: true, maxlength: "10"
-      .field
-        = f.label :メールアドレス
-        %br/
-        = f.email_field :email
-      .field
-        = f.label :パスワード
-        - if @validatable
-          %em
-            (#{@minimum_password_length} characters minimum)
-        %br/
-        = f.password_field :password, autocomplete: "off"
-      .field
-        = f.label :パスワード・確認用
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "off"
-      %p 本人確認
-      %p 安全・安全にご利用いただくために、お客様の本人
-      %p 情報の登録にご協力ください。他のお客様に公開さ
-      %p れることはありません
-      %p お名前（全角）
-      .field
-        = f.label :性
-        %br/
-        = f.text_field :family_name, autofocus: true
-      .field
-        = f.label :名
-        %br/
-        = f.text_field :first_name, autofocus: true
-      %p お名前カナ（全角）
-      .field
-        = f.label :性
-        %br/
-        = f.text_field :family_name_kana, autofocus: true
-      .field
-        = f.label :名
-        %br/
-        = f.text_field :first_name_kana, autofocus: true
-      .field
-        = f.label :生年月日
-        %br/
-        = f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
-      %p ※本人情報は正しく入力してください。会員登録後、
-      %p 修正するにはお時間を頂く場合があります。
-      %h2 商品送付先住所情報
-      %p 送付先氏名（全角）
-      .field
-        = f.label :性
-        %br/
-        = f.text_field :family_name, autofocus: true
-      .field
-        = f.label :名
-        %br/
-        = f.text_field :first_name, autofocus: true
-      %p 送付先氏名カナ（全角）
-      .field
-        = f.label :性
-        %br/
-        = f.text_field :family_name_kana, autofocus: true
-      .field
-        = f.label :名
-        %br/
-        = f.text_field :first_name_kana, autofocus: true
-      %p 郵便番号
-      .field
-        = f.text_field :post_code
-      %p 都道府県
-      .field
-        = f.text_field :prefecture_code
-      %p 市区町村
-      .field
-        = f.text_field :city
-      %p 番地
-      .field
-        = f.text_field :house_number
-      .actions
-        = f.submit "Sign up"
+.Contents
+  %header.Contents__header
+
+  .Contents__container
+    .ContainerInner
+      .ContainerInner__title
+        %h2 新規会員登録
+      .ContainerInner__form
+        .NewUser
+          = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+            = devise_error_messages!
+            .NewUser__fieldTop
+              = f.label :ニックネーム
+              %span.formRequired 必須
+              %em
+              %br/
+              = f.text_field :nickname, autofocus: true, maxlength: "10", class:"InputBox"
+            .NewUser__field
+              = f.label :メールアドレス
+              %span.formRequired 必須
+              %br/
+              = f.email_field :email
+            .NewUser__field
+              = f.label :パスワード
+              %span.formRequired 必須
+              - if @validatable
+                %em
+                  (#{@minimum_password_length} characters minimum)
+              %br/
+              = f.password_field :password, autocomplete: "off"
+            .NewUser__field
+              = f.label :パスワード・確認用
+              %span.formRequired 必須
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "off"
+            %p 本人確認
+            %p 安全・安全にご利用いただくために、お客様の本人
+            %p 情報の登録にご協力ください。他のお客様に公開さ
+            %p れることはありません
+            %p お名前（全角）
+            .NewUser__field
+              = f.label :性
+              %span.formRequired 必須
+              %br/
+              = f.text_field :family_name, autofocus: true
+            .NewUser__field
+              = f.label :名
+              %span.formRequired 必須
+              %br/
+              = f.text_field :first_name, autofocus: true
+            %p お名前カナ（全角）
+            .NewUser__field
+              = f.label :性
+              %span.formRequired 必須
+              %br/
+              = f.text_field :family_name_kana, autofocus: true
+            .NewUser__field
+              = f.label :名
+              %span.formRequired 必須
+              %br/
+              = f.text_field :first_name_kana, autofocus: true
+            .NewUser__field
+              = f.label :生年月日
+              %span.formRequired 必須
+              %br/
+              = f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
+            %p ※本人情報は正しく入力してください。会員登録後、
+            %p 修正するにはお時間を頂く場合があります。
+            %h2 商品送付先住所情報
+            %p 送付先氏名（全角）
+            .NewUser__field
+              = f.label :性
+              %span.formRequired 必須
+              %br/
+              = f.text_field :family_name, autofocus: true
+            .NewUser__field
+              = f.label :名
+              %span.formRequired 必須
+              %br/
+              = f.text_field :first_name, autofocus: true
+            %p 送付先氏名カナ（全角）
+            .NewUser__field
+              = f.label :性
+              %span.formRequired 必須
+              %br/
+              = f.text_field :family_name_kana, autofocus: true
+            .NewUser__field
+              = f.label :名
+              %span.formRequired 必須
+              %br/
+              = f.text_field :first_name_kana, autofocus: true
+            
+            .NewUser__field
+              %p 郵便番号
+              %span.formRequired 必須
+              = f.text_field :post_code
+            .NewUser__field
+              %p 都道府県
+              %span.formRequired 必須
+              = f.text_field :prefecture_code
+            .NewUser__field
+              %p 市区町村
+              %span.formRequired 必須
+              = f.text_field :city
+            .NewUser__field
+              %p 番地
+              %span.formRequired 必須
+              = f.text_field :house_number
+
+            .Actions
+              = f.submit "Sign up"
+  .Contents__footer
