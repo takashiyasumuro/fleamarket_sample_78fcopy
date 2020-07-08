@@ -3,25 +3,27 @@
     = link_to "#" do
       = image_tag 'material/logo/logo.png', height: '49', width: '185'
   .Contents__container
-    .ContainerInner__form
-      .LoginUser
+    .ContainerInner
+      .ContainerInner__title
         %h2 ログイン
-        = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
-          .field
-            = f.label :メールアドレス
-            %br/
-            = f.email_field :email, autofocus: true
-          .field
-            = f.label :パスワード
-            %br/
-            = f.password_field :password, autocomplete: "off"
-          - if devise_mapping.rememberable?
-            .field
-              = f.label :ログインしたままにする
+      .ContainerInner__form
+        .LoginUser
+          = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
+            .LoginUser__field
+              = f.label :メールアドレス
               %br/
-              = f.check_box :remember_me
-          .actions
-            = f.submit "Log in"
+              = f.email_field :email, autofocus: true
+            .LoginUser__field
+              = f.label :パスワード
+              %br/
+              = f.password_field :password, autocomplete: "off"
+            - if devise_mapping.rememberable?
+              .LoginUser__field
+                = f.label :ログインしたままにする
+                %br/
+                = f.check_box :remember_me
+            .Actions
+              = f.submit "Log in"
   .Contents__footer
     .FooterInner
       %ul
